@@ -16,7 +16,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val rollButton: Button = findViewById(R.id.rollButton)
-        rollButton.setOnClickListener { rollDice()}
+        rollButton.setOnClickListener { rollDice()
+        var count: Int = 0
+        while(count < 100){
+            count ++
+            Toast.makeText(this, "Count of toast $count  ", Toast.LENGTH_SHORT).show()
+        }
+        }
+
+
+
     }
     /**
      * Roll the dice and update the screen with the result.
