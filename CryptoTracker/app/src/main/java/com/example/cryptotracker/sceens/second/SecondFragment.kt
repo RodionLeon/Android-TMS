@@ -1,23 +1,43 @@
 package com.example.cryptotracker.sceens.second
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
+import com.example.cryptotracker.sceens.start.StartAdapter
+import com.example.cryptotracker.sceens.start.StartViewModel
 
 
 class SecondFragment : Fragment() {
-
+    private lateinit var adapter: SecondAdapter
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        val viewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
+
+        val view = inflater.inflate(R.layout.fragment_second, container, false)
+        recyclerView = view.findViewById(R.id.rv_second)
+        adapter = SecondAdapter()
+        recyclerView.adapter = adapter
+        viewModel.getCashlessMoney()
+        viewModel.cashlessData.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    adapter.setList(it.rates)
+                }
+            }
+        }
+        return view
     }
-
-
 }
+
+
