@@ -12,8 +12,11 @@ import com.example.cryptotracker.R
 import com.example.cryptotracker.viewPager.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+@AndroidEntryPoint
 class RootFragment : Fragment() {
+   lateinit var adapter : ViewPagerAdapter
 
     private var ctx: Context? = null
 
@@ -29,8 +32,9 @@ class RootFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_root, container,false )
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
         val viewPager = view.findViewById<ViewPager2>(R.id.view_pager)
+        adapter = ViewPagerAdapter(this)
         tabLayout.tabIconTint = null
-        viewPager.adapter = ViewPagerAdapter(ctx as FragmentActivity)
+        viewPager.adapter = adapter
         TabLayoutMediator(tabLayout, viewPager) { tab, pos ->
             when (pos) {
                 0 -> {

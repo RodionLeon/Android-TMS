@@ -1,7 +1,6 @@
 package com.example.cryptotracker.sceens.second
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
-import com.example.cryptotracker.sceens.start.StartAdapter
-import com.example.cryptotracker.sceens.start.StartViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class SecondFragment : Fragment() {
-    private lateinit var adapter: SecondAdapter
+    @Inject
+    lateinit var adapter: SecondAdapter
+
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(

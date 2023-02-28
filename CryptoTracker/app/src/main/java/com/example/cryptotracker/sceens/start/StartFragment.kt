@@ -11,12 +11,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
 import com.example.cryptotracker.model.cash.CashItem
 import com.example.cryptotracker.model.cash.Rate
+import com.example.cryptotracker.sceens.second.SecondAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class StartFragment : Fragment() {
+    @Inject
+    lateinit var adapter: StartAdapter
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: StartAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

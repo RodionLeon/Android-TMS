@@ -7,9 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
 import com.example.cryptotracker.model.cashless.RateCashless
+import javax.inject.Inject
 
 
-class SecondAdapter : RecyclerView.Adapter<SecondAdapter.SecondViewHolder>() {
+class SecondAdapter @Inject constructor() : RecyclerView.Adapter<SecondAdapter.SecondViewHolder>() {
     var listSecond = emptyList<RateCashless>()
 
 

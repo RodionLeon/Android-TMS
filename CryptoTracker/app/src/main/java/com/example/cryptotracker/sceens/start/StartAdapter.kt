@@ -7,9 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
 import com.example.cryptotracker.model.cash.Rate
+import javax.inject.Inject
 
 
-class StartAdapter : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
+class StartAdapter @Inject constructor() : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
 
     var listStart = emptyList<Rate>()
 

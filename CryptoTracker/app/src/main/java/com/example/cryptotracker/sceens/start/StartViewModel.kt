@@ -5,12 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptotracker.data.repo.Repo
 import com.example.cryptotracker.model.cash.CashItem
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import javax.inject.Inject
+@HiltViewModel
+class StartViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
 
-class StartViewModel : ViewModel() {
-
-    var repo = Repo()
     val cashData: MutableLiveData<Response<CashItem>> = MutableLiveData()
 
     fun getCashMoney() {

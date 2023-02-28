@@ -1,4 +1,4 @@
-package com.example.cryptotracker.data.api
+package com.example.cryptotracker.api
 
 import com.example.cryptotracker.model.cash.CashItem
 import com.example.cryptotracker.model.cashless.CashlessItem
