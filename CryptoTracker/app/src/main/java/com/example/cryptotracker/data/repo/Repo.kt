@@ -2,8 +2,8 @@ package com.example.cryptotracker.data.repo
 
 import com.example.cryptotracker.api.ApiService
 import com.example.cryptotracker.model.cash.CashItem
-import com.example.cryptotracker.model.cashless.CashlessItem
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.cryptotracker.model.cashForGraph.CashForGraphItem
+import com.example.cryptotracker.model.nationalRatesCash.NationalRatesCashItem
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -16,7 +16,13 @@ class Repo @Inject constructor(
         return provideApiService.getCash()
     }
 
-    suspend fun getCashless(): Response<CashlessItem> {
-        return provideApiService.getCashless()
+    suspend fun getNationalRatesCash(): Response<NationalRatesCashItem> {
+        return provideApiService.getNationalRatesCash()
     }
+
+    suspend fun getCashForGraph(code:Int, date:String): Response<CashForGraphItem>{
+        return provideApiService.getNationalRatesCashForGraph(code,date)
+    }
+
+
 }

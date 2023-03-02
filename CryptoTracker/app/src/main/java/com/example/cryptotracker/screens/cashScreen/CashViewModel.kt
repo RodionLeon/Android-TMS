@@ -1,4 +1,4 @@
-package com.example.cryptotracker.sceens.start
+package com.example.cryptotracker.screens.cashScreen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 @HiltViewModel
-class StartViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
+class CashViewModel @Inject constructor(private val repo: Repo ) : ViewModel() {
 
     val cashData: MutableLiveData<Response<CashItem>> = MutableLiveData()
 

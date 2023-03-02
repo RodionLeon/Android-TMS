@@ -1,4 +1,4 @@
-package com.example.cryptotracker.sceens.second
+package com.example.cryptotracker.screens.cashScreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,25 +12,26 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SecondFragment : Fragment() {
+class CashFragment : Fragment() {
     @Inject
-    lateinit var adapter: SecondAdapter
+    lateinit var adapter: CashAdapter
 
     private lateinit var recyclerView: RecyclerView
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val viewModel = ViewModelProvider(this).get(SecondViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(CashViewModel::class.java)
 
-        val view = inflater.inflate(R.layout.fragment_second, container, false)
-        recyclerView = view.findViewById(R.id.rv_second)
-        adapter = SecondAdapter()
+        val view = inflater.inflate(R.layout.fragment_start, container, false)
+        recyclerView = view.findViewById(R.id.rv_start)
+        adapter = CashAdapter()
         recyclerView.adapter = adapter
-        viewModel.getCashlessMoney()
-        viewModel.cashlessData.observe(viewLifecycleOwner) { response ->
+        viewModel.getCashMoney()
+        viewModel.cashData.observe(viewLifecycleOwner) { response ->
             if (response.isSuccessful) {
                 response.body()?.let {
                     adapter.setList(it.rates)
@@ -40,5 +41,3 @@ class SecondFragment : Fragment() {
         return view
     }
 }
-
-

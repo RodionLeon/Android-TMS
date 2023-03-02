@@ -1,4 +1,4 @@
-package com.example.cryptotracker.sceens.start
+package com.example.cryptotracker.screens.cashScreen
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import com.example.cryptotracker.model.cash.Rate
 import javax.inject.Inject
 
 
-class StartAdapter @Inject constructor() : RecyclerView.Adapter<StartAdapter.StartViewHolder>() {
+class CashAdapter @Inject constructor() : RecyclerView.Adapter<CashAdapter.StartViewHolder>() {
 
     var listStart = emptyList<Rate>()
 

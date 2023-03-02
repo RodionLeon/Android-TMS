@@ -1,12 +1,10 @@
 package com.example.cryptotracker.viewPager
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.cryptotracker.sceens.root.RootFragment
-import com.example.cryptotracker.sceens.second.SecondFragment
-import com.example.cryptotracker.sceens.start.StartFragment
-import javax.inject.Inject
+import com.example.cryptotracker.screens.root.RootFragment
+import com.example.cryptotracker.screens.nationalRatesCashScreen.NationalRatesCashFragment
+import com.example.cryptotracker.screens.cashScreen.CashFragment
 
 class ViewPagerAdapter (rootFragment: RootFragment) :
     FragmentStateAdapter(rootFragment) {
@@ -16,8 +14,8 @@ class ViewPagerAdapter (rootFragment: RootFragment) :
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> StartFragment()
-            else -> SecondFragment()
+            0 -> CashFragment()
+            else -> NationalRatesCashFragment()
         }
 
     }

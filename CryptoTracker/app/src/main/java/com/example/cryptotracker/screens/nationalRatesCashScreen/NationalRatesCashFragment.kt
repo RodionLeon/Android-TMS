@@ -1,4 +1,4 @@
-package com.example.cryptotracker.sceens.start
+package com.example.cryptotracker.screens.nationalRatesCashScreen
 
 import android.os.Bundle
 import android.util.Log
@@ -9,39 +9,39 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
-import com.example.cryptotracker.model.cash.CashItem
-import com.example.cryptotracker.model.cash.Rate
-import com.example.cryptotracker.sceens.second.SecondAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class StartFragment : Fragment() {
+class NationalRatesCashFragment : Fragment() {
     @Inject
-    lateinit var adapter: StartAdapter
+    lateinit var adapter: NationalRatesCashAdapter
 
     private lateinit var recyclerView: RecyclerView
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val viewModel = ViewModelProvider(this).get(StartViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(NationalRatesCashViewModel::class.java)
 
-        val view = inflater.inflate(R.layout.fragment_start, container, false)
-        recyclerView = view.findViewById(R.id.rv_start)
-        adapter = StartAdapter()
+        val view = inflater.inflate(R.layout.fragment_second, container, false)
+        recyclerView = view.findViewById(R.id.rv_second)
+        adapter = NationalRatesCashAdapter()
         recyclerView.adapter = adapter
-        viewModel.getCashMoney()
-        viewModel.cashData.observe(viewLifecycleOwner) { response ->
+        viewModel.getCashlessMoney()
+        viewModel.cashlessData.observe(viewLifecycleOwner) { response ->
+            Log.d("TAG", "FFFFFFFFFFFFFFFFFFFF: ${response} ")
             if (response.isSuccessful) {
                 response.body()?.let {
-                    adapter.setList(it.rates)
+                  //  adapter.setList(it.rates)
+                    Log.d("TAG", "FFFFFFFFFFFF:${it} ")
                 }
             }
         }
         return view
     }
 }
+
+

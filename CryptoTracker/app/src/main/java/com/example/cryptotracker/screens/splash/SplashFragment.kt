@@ -1,4 +1,4 @@
-package com.example.cryptotracker.sceens.splash
+package com.example.cryptotracker.screens.splash
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

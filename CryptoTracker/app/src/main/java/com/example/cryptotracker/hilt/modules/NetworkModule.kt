@@ -1,6 +1,5 @@
 package com.example.cryptotracker.hilt.modules
 
-import android.app.Application
 import com.example.cryptotracker.api.ApiService
 import com.example.cryptotracker.utils.Constants.Companion.BASE_URL
 import dagger.Module
@@ -11,7 +10,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

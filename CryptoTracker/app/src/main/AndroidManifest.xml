@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CryptoTracker"
         tools:targetApi="31"
-        android:name=".CryptoTracerApplication">
+        android:name=".CurrencyTracerApplication">
         <activity
             android:name=".MainActivity"
             android:exported="true">

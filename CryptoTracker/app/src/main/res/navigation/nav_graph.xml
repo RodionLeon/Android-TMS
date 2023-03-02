@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/rootFragment"
-        android:name="com.example.cryptotracker.sceens.root.RootFragment"
+        android:name="com.example.cryptotracker.screens.root.RootFragment"
         android:label="fragment_root"
         tools:layout="@layout/fragment_root" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.cryptotracker.sceens.splash.SplashFragment"
+        android:name="com.example.cryptotracker.screens.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.cryptotracker.sceens.start.StartFragment"
+        android:name="com.example.cryptotracker.screens.cashScreen.CashFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" />
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.example.cryptotracker.sceens.second.SecondFragment"
+        android:name="com.example.cryptotracker.screens.nationalRatesCashScreen.NationalRatesCashFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" />
 </navigation>

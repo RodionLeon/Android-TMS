@@ -1,4 +1,4 @@
-package com.example.cryptotracker.sceens.root
+package com.example.cryptotracker.screens.root
 
 import android.content.Context
 import android.os.Bundle
@@ -6,14 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cryptotracker.R
 import com.example.cryptotracker.viewPager.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+
 @AndroidEntryPoint
 class RootFragment : Fragment() {
    lateinit var adapter : ViewPagerAdapter
