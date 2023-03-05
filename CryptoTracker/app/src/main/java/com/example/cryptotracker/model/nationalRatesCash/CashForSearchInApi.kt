@@ -1,6 +1,6 @@
 package com.example.cryptotracker.model.nationalRatesCash
 
-import android.util.Log
+
 import retrofit2.Response
 
 object CashForSearchInApi {

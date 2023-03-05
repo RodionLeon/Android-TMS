@@ -1,39 +1,77 @@
 package com.example.cryptotracker.screens.nationalRatesCashScreen
 
+
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
+
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptotracker.R
 import com.example.cryptotracker.model.nationalRatesCash.RateNationalRatesCash
 import javax.inject.Inject
 
 
-class NationalRatesCashAdapter @Inject constructor() : RecyclerView.Adapter<NationalRatesCashAdapter.SecondViewHolder>() {
-    var listSecond = emptyList<RateNationalRatesCash>()
+class NationalRatesCashAdapter @Inject constructor(context: Context) :
+    ArrayAdapter<RateNationalRatesCash>(context, R.layout.item_national_rates_cash, R.id.textViewCurrencyIso) {
 
+    private var items: List<RateNationalRatesCash> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SecondViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_money_layout, parent, false)
-        return SecondViewHolder(view)
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var view = convertView
+        val holder: ViewHolder
+        if (view == null) {
+            view = LayoutInflater.from(parent.context).inflate(R.layout.item_national_rates_cash, parent, false)
+            holder = ViewHolder(
+                view.findViewById(R.id.textViewCurrencyIso)
+            )
+            view.tag = holder
+        } else {
+            holder = view.tag as ViewHolder
+        }
+        val item = items[position]
+        holder.textViewCurrencyIso.text = item.iso
+        return view!!
     }
 
-    override fun onBindViewHolder(holder: SecondViewHolder, position: Int) {
-        val rateList = listSecond[position]
-        holder.itemView.findViewById<TextView>(R.id.buyIso).text = rateList.name
-        holder.itemView.findViewById<TextView>(R.id.item_buy).text = rateList.rate.toString()
-        holder.itemView.findViewById<TextView>(R.id.item_sale).text = rateList.date
+    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var view = convertView
+        val holder: ViewHolder
+        if (view == null) {
+            view = LayoutInflater.from(parent.context).inflate(R.layout.item_national_rates_cash_dropdown, parent, false)
+            holder = ViewHolder(
+                view.findViewById(R.id.textViewCurrencyIso)
+            )
+            view.tag = holder
+        } else {
+            holder = view.tag as ViewHolder
+        }
+        val item = items[position]
+        holder.textViewCurrencyIso.text = item.iso
+
+        return view!!
     }
 
-    override fun getItemCount(): Int {
-        return listSecond.size
+    override fun getCount(): Int {
+        return items.size
     }
 
-    class SecondViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    override fun getItem(position: Int): RateNationalRatesCash? {
+        return items.getOrNull(position)
+    }
 
-    fun setList(list: List<RateNationalRatesCash>) {
-        listSecond = list
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    fun setItems(newItems: List<RateNationalRatesCash>) {
+        items = newItems
         notifyDataSetChanged()
     }
+
+    inner class ViewHolder(
+        val textViewCurrencyIso: TextView
+    )
 }

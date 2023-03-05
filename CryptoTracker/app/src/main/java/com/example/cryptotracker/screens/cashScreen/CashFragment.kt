@@ -26,7 +26,7 @@ class CashFragment : Fragment() {
     ): View? {
         val viewModel = ViewModelProvider(this).get(CashViewModel::class.java)
 
-        val view = inflater.inflate(R.layout.fragment_start, container, false)
+        val view = inflater.inflate(R.layout.fragment_cash_screen, container, false)
         recyclerView = view.findViewById(R.id.rv_start)
         adapter = CashAdapter()
         recyclerView.adapter = adapter

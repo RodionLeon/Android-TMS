@@ -23,10 +23,10 @@
         android:id="@+id/startFragment"
         android:name="com.example.cryptotracker.screens.cashScreen.CashFragment"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" />
+        tools:layout="@layout/fragment_cash_screen" />
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.cryptotracker.screens.nationalRatesCashScreen.NationalRatesCashFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_national_rates_cash_screen" />
 </navigation>

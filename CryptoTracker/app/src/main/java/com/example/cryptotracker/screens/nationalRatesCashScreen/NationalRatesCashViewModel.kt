@@ -1,26 +1,37 @@
 package com.example.cryptotracker.screens.nationalRatesCashScreen
 
+
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptotracker.data.repo.Repo
-import com.example.cryptotracker.model.cashForGraph.CashForGraphItem
 import com.example.cryptotracker.model.nationalRatesCash.NationalRatesCashItem
+import com.example.cryptotracker.model.nationalRatesCash.RateNationalRatesCash
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class NationalRatesCashViewModel @Inject constructor(
-    private val repo: Repo
-) : ViewModel() {
+class NationalRatesCashViewModel @Inject constructor(private val repo: Repo) : ViewModel() {
 
-    val cashlessData: MutableLiveData<Response<CashForGraphItem>> = MutableLiveData()
+    val items = MutableLiveData<List<RateNationalRatesCash>>()
 
-    fun getCashlessMoney() {
+    init {
+        loadItems()
+    }
+
+    private fun loadItems() {
         viewModelScope.launch {
-            cashlessData.value = repo.getCashForGraph(840, "01.02.2023")
+            val response = repo.getNationalRatesCash()
+            if (response.isSuccessful) {
+                val body = response.body()
+                if (body != null) {
+                    items.postValue(body.rates)
+                }
+            }
         }
     }
 }

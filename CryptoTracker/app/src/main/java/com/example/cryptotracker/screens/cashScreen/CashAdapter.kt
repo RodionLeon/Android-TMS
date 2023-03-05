@@ -31,7 +31,7 @@ class CashAdapter @Inject constructor() : RecyclerView.Adapter<CashAdapter.Start
         return listStart.size
     }
 
-    class StartViewHolder(view: View) : RecyclerView.ViewHolder(view)
+  inner class StartViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     fun setList(list: List<Rate>) {
         listStart = list
