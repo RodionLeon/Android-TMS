@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp">
+    android:layout_margin="3dp"
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,29 +20,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Название"
-                android:textColor="#5280FF" />
+                android:text="Валюта"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Покупка"
-                android:textColor="#0EE13C" />
+                android:textColor="#27D32B" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Продажа"
-                android:textColor="@color/orange" />
+                android:textColor="#D86D02" />
         </LinearLayout>
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:background="@color/black" />
+            android:background="#CCCCCC" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -58,7 +59,8 @@
                     android:id="@+id/sellIso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="USD" />
+                    android:text="USD"
+                    android:textColor="@color/white" />
 
                 <TextView
 
@@ -70,6 +72,7 @@
                     android:id="@+id/buyIso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     tools:text="BYN" />
             </LinearLayout>
 
@@ -79,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 tools:text="228.3" />
 
             <TextView
@@ -86,6 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/white"
                 tools:text="228.5" />
         </LinearLayout>
     </LinearLayout>

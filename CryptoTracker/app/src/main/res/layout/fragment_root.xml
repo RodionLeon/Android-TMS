@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".screens.root.RootFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
         app:layout_constraintBottom_toTopOf="@+id/tab_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/blue"/>
+        android:background="#F2F2F2"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -24,6 +24,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/orange"/>
+        android:background="#9E9C9C"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
