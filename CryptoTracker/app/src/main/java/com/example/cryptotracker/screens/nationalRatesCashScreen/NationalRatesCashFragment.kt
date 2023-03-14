@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.cryptotracker.R
+import com.example.cryptotracker.utils.Constants.Companion.MONTH
+import com.example.cryptotracker.utils.Constants.Companion.WEEK
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.data.Entry
@@ -35,7 +37,7 @@ class NationalRatesCashFragment : Fragment() {
     private lateinit var monthButton: Button
 
     private var currencyIso: String = ""
-    private var daysCount: Int = 7
+    private var daysCount : Int = 0
     private var currencyCode: Int = 0
 
     override fun onCreateView(
@@ -86,12 +88,12 @@ class NationalRatesCashFragment : Fragment() {
         }
 
         weekButton.setOnClickListener {
-            daysCount = 7
+            daysCount = WEEK
             fetchGraphData()
         }
 
         monthButton.setOnClickListener {
-            daysCount = 31
+            daysCount = MONTH
             fetchGraphData()
         }
 

@@ -47,13 +47,21 @@ class NationalRatesCashViewModel @Inject constructor(private val repo: Repo) : V
             val dates = (0 until numDays).map { endDate.minusDays(it.toLong()) }
             val rates = mutableListOf<RateForGraph>()
             for (date in dates) {
-                val response = repo.getCashForGraph(currencyCode, date.format(
-                    DateTimeFormatter.ofPattern("dd.MM.yyyy")))
+                val response = repo.getCashForGraph(
+                    currencyCode, date.format(
+                        DateTimeFormatter.ofPattern("dd.MM.yyyy")
+                    )
+                )
                 if (response.isSuccessful) {
                     rates.addAll(response.body()?.rates ?: emptyList())
                 }
             }
-            _ratesForGraph.value = rates.sortedBy { LocalDate.parse(it.date, DateTimeFormatter.ofPattern("dd.MM.yyyy")) }
+            _ratesForGraph.value = rates.sortedBy {
+                LocalDate.parse(
+                    it.date,
+                    DateTimeFormatter.ofPattern("dd.MM.yyyy")
+                )
+            }
         }
     }
 }
